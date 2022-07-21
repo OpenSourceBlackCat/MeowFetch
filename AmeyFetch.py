@@ -15,5 +15,4 @@ class AmeyFetch:
   
 if __name__ == "__main__": 
 	ameyFetch = AmeyFetch()
-	for i in ameyFetch:
-		print(i)
+	print(f"{ameyFetch.user_name}@{ameyFetch.host_name}")
