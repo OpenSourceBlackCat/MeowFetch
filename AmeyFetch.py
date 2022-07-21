@@ -45,21 +45,21 @@ class AmeyFetch:
 		return self.ameyFetchLogo
 if __name__ == "__main__": 
 	ameyFetch = AmeyFetch()
-	userNameWithHostName = f"{ameyFetch.user_name}@{ameyFetch.host_name}"
+	userNameWithHostName = f"{Fore.YELLOW}{ameyFetch.user_name}{Fore.RESET}@{Fore.YELLOW}{ameyFetch.host_name}{Fore.RESET}"
 	finalPrintDesign = "-"*len(userNameWithHostName)
 	ameyFetch.totalInfo.append(userNameWithHostName)
 	ameyFetch.totalInfo.append(finalPrintDesign)
-	ameyFetch.totalInfo.append(f"OS: {ameyFetch.OS}")
-	ameyFetch.totalInfo.append(f"HOST: {ameyFetch.host}")
-	ameyFetch.totalInfo.append(f"KERNEL: {ameyFetch.OS_version}")
-	ameyFetch.totalInfo.append(f"UPTIME: {ameyFetch.uptime}")
-	ameyFetch.totalInfo.append(f"CPU: {ameyFetch.cpu_name}")
-	ameyFetch.totalInfo.append(f"CPU CORES: {ameyFetch.cpu_count}/{ameyFetch.cpu_thread}")
-	ameyFetch.totalInfo.append(f"CPU FREQ: {ameyFetch.cpu_freq_max}")
-	ameyFetch.totalInfo.append(f"GPU: {ameyFetch.gpu_name}")
-	ameyFetch.totalInfo.append(f"GPU MEM: {ameyFetch.gpu_mem}")
-	ameyFetch.totalInfo.append(f"SYSTEM MEM: {ameyFetch.ram_usage}")
-	ameyFetch.totalInfo.append(f"DISK ({ameyFetch.disk_name}): {ameyFetch.disk_usage}")
+	ameyFetch.totalInfo.append(f"{Fore.YELLOW}OS:{Fore.RESET} {ameyFetch.OS}")
+	ameyFetch.totalInfo.append(f"{Fore.YELLOW}HOST:{Fore.RESET} {ameyFetch.host}")
+	ameyFetch.totalInfo.append(f"{Fore.YELLOW}KERNEL:{Fore.RESET} {ameyFetch.OS_version}")
+	ameyFetch.totalInfo.append(f"{Fore.YELLOW}UPTIME:{Fore.RESET} {ameyFetch.uptime}")
+	ameyFetch.totalInfo.append(f"{Fore.YELLOW}CPU:{Fore.RESET} {ameyFetch.cpu_name}")
+	ameyFetch.totalInfo.append(f"{Fore.YELLOW}CPU CORES:{Fore.RESET} {ameyFetch.cpu_count}/{ameyFetch.cpu_thread}")
+	ameyFetch.totalInfo.append(f"{Fore.YELLOW}CPU FREQ:{Fore.RESET} {ameyFetch.cpu_freq_max}")
+	ameyFetch.totalInfo.append(f"{Fore.YELLOW}GPU:{Fore.RESET} {ameyFetch.gpu_name}")
+	ameyFetch.totalInfo.append(f"{Fore.YELLOW}GPU MEM:{Fore.RESET} {ameyFetch.gpu_mem}")
+	ameyFetch.totalInfo.append(f"{Fore.YELLOW}SYSTEM MEM:{Fore.RESET} {ameyFetch.ram_usage}")
+	ameyFetch.totalInfo.append(f"{Fore.YELLOW}DISK ({ameyFetch.disk_name}):{Fore.RESET} {ameyFetch.disk_usage}")
 	if (len(ameyFetch.totalInfo)>len(ameyFetch.getLogo())):
 		for i in range(len(ameyFetch.totalInfo)):
 			try:
