@@ -1,9 +1,12 @@
 from platform import uname, node
 from getpass import getuser
+from turtle import color
+from colorama import Fore, init as coloramaInit
 from psutil import cpu_count, cpu_freq, cpu_percent, virtual_memory, swap_memory, boot_time, disk_partitions, disk_usage, disk_io_counters
 from GPUtil import getGPUs
 class AmeyFetch:
 	def __init__(self):
+		coloramaInit()
 		self.host_name = node()
 		self.user_name = getuser()
 		self.cpu_name = uname().processor
@@ -15,4 +18,7 @@ class AmeyFetch:
   
 if __name__ == "__main__": 
 	ameyFetch = AmeyFetch()
-	print(f"{ameyFetch.user_name}@{ameyFetch.host_name}")
+	userNameWithHostName = f"{ameyFetch.user_name}@{ameyFetch.host_name}"
+	print("-"*len(userNameWithHostName))
+	print(f"{userNameWithHostName}")
+	print("-"*len(userNameWithHostName))
