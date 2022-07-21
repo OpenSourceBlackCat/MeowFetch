@@ -18,8 +18,12 @@ class AmeyFetch:
 		self.cpu_count = cpu_count(logical=False)
 		self.cpu_thread = cpu_count(logical=True)
 		self.cpu_freq_max = cpu_freq().max
-		self.gpu_name = getGPUs()[0].name
-		self.gpu_mem = f"{getGPUs()[0].memoryUsed} MiB / {getGPUs()[0].memoryTotal} MiB"
+		try:
+			self.gpu_name = getGPUs()[0].name
+			self.gpu_mem = f"{getGPUs()[0].memoryUsed} MiB / {getGPUs()[0].memoryTotal} MiB"
+		except:
+			self.gpu_name = "N/A"
+			self.gpu_mem = "N/A"
 		self.ram_usage = f"{self.memCon(virtual_memory().used)} / {self.memCon(virtual_memory().total)}"
 		self.uptime = timedelta(seconds=(time()-boot_time()))
 		self.disk_name = disk_partitions()[0].device.replace("\\", "")
