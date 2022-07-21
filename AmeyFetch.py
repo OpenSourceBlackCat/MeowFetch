@@ -9,10 +9,9 @@ from GPUtil import getGPUs
 class AmeyFetch:
 	def __init__(self):
 		coloramaInit()
-		self.host = uname().system
 		self.host_name = uname().node
 		self.user_name = getuser()
-		self.OS = f"{self.host_name} {uname().release}"
+		self.OS = f"{uname().system} {uname().release}"
 		self.OS_version = uname().version
 		self.cpu_name = uname().processor
 		self.cpu_count = cpu_count(logical=False)
@@ -54,7 +53,7 @@ if __name__ == "__main__":
 	ameyFetch.totalInfo.append(userNameWithHostName)
 	ameyFetch.totalInfo.append(finalPrintDesign)
 	ameyFetch.totalInfo.append(f"{Fore.YELLOW}OS:{Fore.RESET} {ameyFetch.OS}")
-	ameyFetch.totalInfo.append(f"{Fore.YELLOW}HOST:{Fore.RESET} {ameyFetch.host}")
+	ameyFetch.totalInfo.append(f"{Fore.YELLOW}HOST:{Fore.RESET} {ameyFetch.host_name}")
 	ameyFetch.totalInfo.append(f"{Fore.YELLOW}KERNEL:{Fore.RESET} {ameyFetch.OS_version}")
 	ameyFetch.totalInfo.append(f"{Fore.YELLOW}UPTIME:{Fore.RESET} {ameyFetch.uptime}")
 	ameyFetch.totalInfo.append(f"{Fore.YELLOW}CPU:{Fore.RESET} {ameyFetch.cpu_name}")
