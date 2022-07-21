@@ -1,6 +1,5 @@
 from platform import uname, node
 from getpass import getuser
-from re import S
 from psutil import cpu_count, cpu_freq, cpu_percent, virtual_memory, swap_memory, boot_time, disk_partitions, disk_usage, disk_io_counters
 from GPUtil import getGPUs
 class AmeyFetch:
@@ -16,4 +15,5 @@ class AmeyFetch:
   
 if __name__ == "__main__": 
 	ameyFetch = AmeyFetch()
-	print(AmeyFetch.host_name)
+	for i in ameyFetch:
+		print(i)
