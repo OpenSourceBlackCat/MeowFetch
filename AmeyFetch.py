@@ -80,12 +80,15 @@ if __name__ == "__main__":
 	ameyFetch.totalInfo.append(f"{Fore.YELLOW}SYSTEM MEM:{Fore.RESET} {ameyFetch.ram_usage}")
 	ameyFetch.totalInfo.append(f"{Fore.YELLOW}DISK ({ameyFetch.disk_name}):{Fore.RESET} {ameyFetch.disk_usage}")
 	ameyFetchGetLogo = ameyFetch.getLogo(systemArgs=argv)
+	try:
+		ascii_prefix = " "*(len(ameyFetchGetLogo[0])-9)
+	except:
+		ascii_prefix = ""
 	if (len(ameyFetch.totalInfo)>len(ameyFetchGetLogo)):
 		for i in range(len(ameyFetch.totalInfo)):
 			try:
 				print(f"{ameyFetchGetLogo[i]}{ameyFetch.totalInfo[i]}")
 			except:
-				ascii_prefix = " "*len(ameyFetchGetLogo[0])
 				print(f"{ascii_prefix}{ameyFetch.totalInfo[i]}")
 	else:
 		for i in range(len(ameyFetchGetLogo)):
