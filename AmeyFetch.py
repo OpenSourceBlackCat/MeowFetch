@@ -3,14 +3,17 @@ from colorama import init as coloramaInit, Fore
 from termcolor import colored, COLORS
 from math import floor, log, pow
 from datetime import timedelta
+from sys import platform, argv
 from getpass import getuser
 from platform import uname
 from GPUtil import getGPUs
 from time import time
-from sys import argv
 class AmeyFetch:
 	def __init__(self):
-		coloramaInit(convert=False)
+		if platform == "win32":
+			coloramaInit(convert=True)
+		else:
+			coloramaInit(convert=True)
 		self.host_name = uname().node
 		self.user_name = getuser()
 		self.OS = f"{uname().system} {uname().release}"
