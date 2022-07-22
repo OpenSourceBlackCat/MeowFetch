@@ -42,7 +42,16 @@ Argument:
 ```
 --ascii_color:<color_name>
 ```
-For Example:
+‎
+‎
+# CUSTOM ASCII LOGO
+Argument:
+```
+--ascii_logo:<file name>
+```
+‎
+‎
+# ASCII COLORS Examples:
 ```
 python AmeyFetch.py --ascii_color:Blue
 ```
@@ -93,5 +102,12 @@ python AmeyFetch.py --ascii_color:Cyan
 python AmeyFetch.py --ascii_color:White
 ```
 ![alt text](https://github.com/Amey-Gurjar/ameyfetchpy/blob/master/images/whitelogo.png?raw=true)
+‎
+‎
+# CUSTOM ASCII LOGO Example:
+```
+python AmeyFetch.py --ascii_logo:meow.txt
+```
+![alt text](https://github.com/Amey-Gurjar/ameyfetchpy/blob/master/images/customlogo.png?raw=true)
 ‎
 ‎
