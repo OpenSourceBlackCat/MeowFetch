@@ -49,38 +49,46 @@ python AmeyFetch.py --ascii_color:Grey
 ```
 ![alt text](https://github.com/Amey-Gurjar/ameyfetchpy/blob/master/images/greylogo.png?raw=true)
 ‎
+‎
 ```
 python AmeyFetch.py --ascii_color:Red
 ```
 ![alt text](https://github.com/Amey-Gurjar/ameyfetchpy/blob/master/images/redlogo.png?raw=true)
+‎
 ‎
 ```
 python AmeyFetch.py --ascii_color:Green
 ```
 ![alt text](https://github.com/Amey-Gurjar/ameyfetchpy/blob/master/images/greenlogo.png?raw=true)
 ‎
+‎
 ```
 python AmeyFetch.py --ascii_color:Yellow
 ```
 ![alt text](https://github.com/Amey-Gurjar/ameyfetchpy/blob/master/images/yellowlogo.png?raw=true)
+‎
 ‎
 ```
 python AmeyFetch.py --ascii_color:Blue
 ```
 ![alt text](https://github.com/Amey-Gurjar/ameyfetchpy/blob/master/images/bluelogo.png?raw=true)
 ‎
+‎
 ```
 python AmeyFetch.py --ascii_color:Magenta
 ```
 ![alt text](https://github.com/Amey-Gurjar/ameyfetchpy/blob/master/images/magentalogo.png?raw=true)
+‎
 ‎
 ```
 python AmeyFetch.py --ascii_color:Cyan
 ```
 ![alt text](https://github.com/Amey-Gurjar/ameyfetchpy/blob/master/images/cyanlogo.png?raw=true)
 ‎
+‎
 ```
 python AmeyFetch.py --ascii_color:White
 ```
 ![alt text](https://github.com/Amey-Gurjar/ameyfetchpy/blob/master/images/whitelogo.png?raw=true)
+‎
 ‎
