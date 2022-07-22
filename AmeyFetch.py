@@ -10,7 +10,7 @@ from time import time
 from sys import argv
 class AmeyFetch:
 	def __init__(self):
-		coloramaInit(convert=True)
+		coloramaInit(convert=False)
 		self.host_name = uname().node
 		self.user_name = getuser()
 		self.OS = f"{uname().system} {uname().release}"
