@@ -1,3 +1,4 @@
+import sys
 from psutil import cpu_count, cpu_freq, virtual_memory, boot_time, disk_partitions, disk_usage
 from colorama import init as coloramaInit, Fore
 from termcolor import colored, COLORS
@@ -34,6 +35,8 @@ class AmeyFetch:
 		self.disk_usage = f"{self.memCon(disk_usage(disk_partitions()[0].mountpoint).used)} / {self.memCon(disk_usage(disk_partitions()[0].mountpoint).total)}"
 		self.ameyFetchLogo = []
 		self.totalInfo = []
+		self.ascii_logo_image = "logo.txt"
+		self.ascii_logo_color = "white"
 	def memCon(self, size_bytes):
 		if size_bytes == 0:
 			return "0B"
@@ -42,26 +45,25 @@ class AmeyFetch:
 		p = pow(1024, i)
 		s = round(size_bytes / p, 2)
 		return "%s %s" % (s, size_name[i])
-	def getLogo(self):
+	def getLogo(self, systemArgs=[]):
 		if len(self.ameyFetchLogo)==0:
-			ascii_logo_color = self.ascii_color(list(argv))
-			if ascii_logo_color not in list(COLORS.keys()):
-				ascii_logo_color = "white"
-			with open("logo.txt", "r") as logoFile:
+			for sysArgs in systemArgs:
+				if sysArgs.startswith("--ascii_logo:"):
+					self.ascii_logo_image = sysArgs.replace("--ascii_logo:", "")
+				if sysArgs.startswith("--ascii_color:"):
+					logo_color_temp = sysArgs.replace("--ascii_color:", "").lower()
+					if self.ascii_logo_color in list(COLORS.keys()):
+						self.ascii_logo_color = logo_color_temp
+			with open(self.ascii_logo_image, "r") as logoFile:
 				for line in logoFile:
 					line = line.rstrip("\n")
 					if line.endswith("."):
 						line = line.rstrip(".")
-						self.ameyFetchLogo.append(f"{colored(text=line, color=ascii_logo_color)}")
+						self.ameyFetchLogo.append(f"{colored(text=line, color=self.ascii_logo_color)}")
 		return self.ameyFetchLogo
-	def ascii_color(self, systemArgs=[]):
-		for sysArgs in systemArgs:
-			if sysArgs.startswith("--ascii_color:"):
-				return sysArgs.replace("--ascii_color:", "").lower()
-		return "WHITE"
+
 if __name__ == "__main__": 
 	ameyFetch = AmeyFetch()
-	ascii_logo_color = ameyFetch.ascii_color(list(argv))
 	userNameWithHostName = f"{Fore.YELLOW}{ameyFetch.user_name}{Fore.RESET}@{Fore.YELLOW}{ameyFetch.host_name}{Fore.RESET}"
 	finalPrintDesign = "-"*len(userNameWithHostName)
 	ameyFetch.totalInfo.append(userNameWithHostName)
@@ -77,16 +79,17 @@ if __name__ == "__main__":
 	ameyFetch.totalInfo.append(f"{Fore.YELLOW}GPU MEM:{Fore.RESET} {ameyFetch.gpu_mem}")
 	ameyFetch.totalInfo.append(f"{Fore.YELLOW}SYSTEM MEM:{Fore.RESET} {ameyFetch.ram_usage}")
 	ameyFetch.totalInfo.append(f"{Fore.YELLOW}DISK ({ameyFetch.disk_name}):{Fore.RESET} {ameyFetch.disk_usage}")
-	if (len(ameyFetch.totalInfo)>len(ameyFetch.getLogo())):
+	ameyFetchGetLogo = ameyFetch.getLogo(systemArgs=argv)
+	if (len(ameyFetch.totalInfo)>len(ameyFetchGetLogo)):
 		for i in range(len(ameyFetch.totalInfo)):
 			try:
-				print(f"{ameyFetch.getLogo()[i]}{ameyFetch.totalInfo[i]}")
+				print(f"{ameyFetchGetLogo[i]}{ameyFetch.totalInfo[i]}")
 			except:
-				ascii_prefix = " "*len(ameyFetch.getLogo()[0])
+				ascii_prefix = " "*len(ameyFetchGetLogo[0])
 				print(f"{ascii_prefix}{ameyFetch.totalInfo[i]}")
 	else:
-		for i in range(len(ameyFetch.getLogo())):
+		for i in range(len(ameyFetchGetLogo)):
 			try:
-				print(f"{ameyFetch.getLogo()[i]}{ameyFetch.totalInfo[i]}")
+				print(f"{ameyFetchGetLogo[i]}{ameyFetch.totalInfo[i]}")
 			except:
-				print(f"{ameyFetch.getLogo()[i]}")
+				print(f"{ameyFetchGetLogo[i]}")
