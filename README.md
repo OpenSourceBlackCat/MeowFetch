@@ -41,7 +41,7 @@ Argument:
 ```
 For Example:
 ```
-python AmeyFetch.py --ascii_color:Green
+python AmeyFetch.py --ascii_color:Blue
 ```
 Color Options:
 ```
