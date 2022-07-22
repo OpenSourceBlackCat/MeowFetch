@@ -68,7 +68,8 @@ if __name__ == "__main__":
 			try:
 				print(f"{ameyFetch.getLogo()[i]}{ameyFetch.totalInfo[i]}")
 			except:
-				print(f"{ameyFetch.getLogo()[i]}")
+				ascii_prefix = " "*len(ameyFetch.getLogo()[0])
+				print(f"{ascii_prefix}{ameyFetch.totalInfo[i]}")
 	else:
 		for i in range(len(ameyFetch.getLogo())):
 			try:
