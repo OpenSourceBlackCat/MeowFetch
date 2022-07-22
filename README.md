@@ -4,6 +4,9 @@ An Fast And Responsive Alternative To Neofetch Written In Python.
 ![alt text](https://github.com/Amey-Gurjar/ameyfetchpy/blob/master/images/win.png?raw=true)
 # Linux
 ![alt text](https://github.com/Amey-Gurjar/ameyfetchpy/blob/master/images/linux.png?raw=true)
+‎
+‎
+Using AmeyFetch:
 ```
 git clone https://github.com/Amey-Gurjar/ameyfetchpy.git
 ```
