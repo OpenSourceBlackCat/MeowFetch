@@ -1,14 +1,16 @@
-from platform import uname
-from getpass import getuser
-from colorama import Fore, init as coloramaInit
 from psutil import cpu_count, cpu_freq, virtual_memory, boot_time, disk_partitions, disk_usage
-from datetime import timedelta
-from time import time
+from colorama import init as coloramaInit, Fore
+from termcolor import colored, COLORS
 from math import floor, log, pow
+from datetime import timedelta
+from getpass import getuser
+from platform import uname
 from GPUtil import getGPUs
+from time import time
+from sys import argv
 class AmeyFetch:
 	def __init__(self):
-		coloramaInit()
+		coloramaInit(convert=True)
 		self.host_name = uname().node
 		self.user_name = getuser()
 		self.OS = f"{uname().system} {uname().release}"
@@ -39,15 +41,24 @@ class AmeyFetch:
 		return "%s %s" % (s, size_name[i])
 	def getLogo(self):
 		if len(self.ameyFetchLogo)==0:
+			ascii_logo_color = self.ascii_color(list(argv))
+			if ascii_logo_color not in list(COLORS.keys()):
+				ascii_logo_color = "white"
 			with open("logo.txt", "r") as logoFile:
 				for line in logoFile:
 					line = line.rstrip("\n")
 					if line.endswith("."):
 						line = line.rstrip(".")
-					self.ameyFetchLogo.append(line)
+						self.ameyFetchLogo.append(f"{colored(text=line, color=ascii_logo_color)}")
 		return self.ameyFetchLogo
+	def ascii_color(self, systemArgs=[]):
+		for sysArgs in systemArgs:
+			if sysArgs.startswith("--ascii_color:"):
+				return sysArgs.replace("--ascii_color:", "").lower()
+		return "WHITE"
 if __name__ == "__main__": 
 	ameyFetch = AmeyFetch()
+	ascii_logo_color = ameyFetch.ascii_color(list(argv))
 	userNameWithHostName = f"{Fore.YELLOW}{ameyFetch.user_name}{Fore.RESET}@{Fore.YELLOW}{ameyFetch.host_name}{Fore.RESET}"
 	finalPrintDesign = "-"*len(userNameWithHostName)
 	ameyFetch.totalInfo.append(userNameWithHostName)
