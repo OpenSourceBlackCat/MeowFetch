@@ -13,7 +13,7 @@ class AmeyFetch:
 		if platform == "win32":
 			coloramaInit(convert=True)
 		else:
-			coloramaInit(convert=True)
+			coloramaInit(convert=False)
 		self.host_name = uname().node
 		self.user_name = getuser()
 		self.OS = f"{uname().system} {uname().release}"
