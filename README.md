@@ -1,5 +1,5 @@
 # Amey Fetch (Python)
-An Fast And Responsive Alternative To Neofetch And Pfetch Written In Python.
+A Fast And Responsive Alternative To Neofetch And Pfetch Written In Python.
 # Windows
 ![alt text](https://github.com/Amey-Gurjar/ameyfetchpy/blob/master/images/win.png?raw=true)
 # Linux
