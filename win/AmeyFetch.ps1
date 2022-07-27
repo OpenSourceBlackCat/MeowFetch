@@ -23,18 +23,14 @@ $SYS_INFO[10] = "GPU: {0}" -f $GPU_INFO.Name;
 $SYS_INFO[11] = "CPU: {0}" -f $CPU_INFO.Name;
 $SYS_INFO[12] = "MEMORY: {0} GiB / {1} GiB" -f [math]::Round($MEM_INFO, 2), [math]::Round(($COMPUTER.TotalVisibleMemorySize/1024)/1024, 2);
 $SYS_INFO[13] = "DISK (C:): {0} GiB / {1} GiB" -f [math]::Round((($DISK_INFO.Used/1024)/1024)/1024, 2), [math]::Round(((($DISK_INFO.Free+$DISK_INFO.Used)/1024)/1024)/1024, 2);
+$ASCII_LOGO = "logo.txt";
+$ASCII_COLOR = "white";
 for ($arg=0; $arg -lt $args.Count; $arg++){
     if($args[$arg].ToLower().Contains("--ascii_logo:")){
         $ASCII_LOGO = $args[$arg].ToLower().replace("--ascii_logo:", "");
     }
-    else{
-        $ASCII_LOGO = "logo.txt";
-    }
     if ($args[$arg].ToLower().Contains("--ascii_color:")){
         $ASCII_COLOR = $args[$arg].ToLower().replace("--ascii_color:", "");
-    }
-    else{
-        $ASCII_COLOR = "";
     }
 }
 $LOGO_FILE = Get-Content $ASCII_LOGO;
