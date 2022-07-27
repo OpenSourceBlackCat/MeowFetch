@@ -36,8 +36,11 @@ for ($arg=0; $arg -lt $args.Count; $arg++){
 $LOGO_FILE = Get-Content $ASCII_LOGO;
 if ($LOGO_FILE.Count -gt $SYS_INFO.Count){
     for ($i=0; $i -lt $LOGO_FILE.Count; $i++){
+        if ($LOGO_FILE[$i].endswith(".")){
+            $LOGO_FILE[$i].Substring(0,$LOGO_FILE[$i].Length-1)
+        }
         try{
-            $FINAL_OUT = "{0} {1}" -f $LOGO_FILE[$i].replace(".", ""), $SYS_INFO[$i];
+            $FINAL_OUT = "{0} {1}" -f $LOGO_FILE[$i], $SYS_INFO[$i];
         }
         catch{
             $SPACE_CHAR = " " * ($LOGO_FILE[0].Length-1);
@@ -48,6 +51,9 @@ if ($LOGO_FILE.Count -gt $SYS_INFO.Count){
 }
 else{
     for ($i=0; $i -lt $SYS_INFO.Count; $i++){
+        if ($LOGO_FILE[$i].endswith(".")){
+            $LOGO_FILE[$i].Substring(0,$LOGO_FILE[$i].Length-1)
+        }
         try{
             $FINAL_OUT = "{0} {1}" -f $LOGO_FILE[$i].replace(".", ""), $SYS_INFO[$i];
         }
