@@ -9,6 +9,9 @@ $Shell_Info = Get-Process -Id $SHELL[0].ParentProcessId;
 $MEM_INFO =  (($COMPUTER.TotalVisibleMemorySize - $COMPUTER.FreePhysicalMemory)/1024)/1024;
 $DISK_INFO = (Get-PSDrive -Name C);
 $SYS_INFO = @{};
+if ($GPU_INFO[1]){
+	$GPU_INFO = $GPU_INFO[1];
+}
 $SYS_INFO[0] = "{0}@{1}" -f $env:USERNAME, $COMPUTER.CSName;
 $SYS_INFO[1] = "-" * $SYS_INFO[0].Length;
 $SYS_INFO[2] = "OS: {0} {1}" -f $COMPUTER.Name.Split("|")[0], $COMPUTER.OSArchitecture;
