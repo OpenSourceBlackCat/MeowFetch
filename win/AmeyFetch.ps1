@@ -59,6 +59,6 @@ else{
             $SPACE_CHAR = " " * ($LOGO_FILE[0].Length-1);
             $FINAL_OUT = "{0} {1}" -f $SPACE_CHAR, $SYS_INFO[$i];
         }
-        Write-Color -ForegroundColor $ASCII_COLOR $FINAL_OUT;
+        Write-Host -ForegroundColor $ASCII_COLOR $FINAL_OUT;
     }
 }
