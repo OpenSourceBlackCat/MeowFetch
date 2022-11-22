@@ -1,0 +1,4 @@
+psutil
+gputil
+colorama
+termcolor
