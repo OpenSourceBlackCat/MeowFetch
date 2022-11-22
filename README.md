@@ -40,7 +40,7 @@ Currently Supported Colors:
 ```
 Argument:
 ```
---ascii_color:<color_name>
+--ascii_color:<logo_color_name>-<text_color_name>
 ```
 ‎
 ‎
