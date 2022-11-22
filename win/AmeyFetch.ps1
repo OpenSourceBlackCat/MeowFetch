@@ -12,7 +12,11 @@ $SYS_INFO = @{};
 if ($GPU_INFO[1]){
 	$GPU_INFO = $GPU_INFO[1];
 }
+<<<<<<< HEAD
 $SYS_INFO[0] = "{0}@{1}" -f $env:USERNAME, (Get-Culture).TextInfo.ToTitleCase($COMPUTER.CSName.ToLower());
+=======
+$SYS_INFO[0] = "{0}@{1}" -f $env:USERNAME, $COMPUTER.CSName;
+>>>>>>> 1cc805eb5c2f79c89ec3865b650b969b67a408b4
 $SYS_INFO[1] = "-" * $SYS_INFO[0].Length;
 $SYS_INFO[2] = "OS: {0} {1}" -f $COMPUTER.Name.Split("|")[0], $COMPUTER.OSArchitecture;
 $SYS_INFO[3] = "HOST: {0}" -f $MOTHERBOARD.Manufacturer;
@@ -27,7 +31,11 @@ $SYS_INFO[11] = "GPU: {0}" -f $GPU_INFO.Name;
 $SYS_INFO[12] = "MEMORY: {0} GiB / {1} GiB" -f [math]::Round($MEM_INFO, 2), [math]::Round(($COMPUTER.TotalVisibleMemorySize/1024)/1024, 2);
 $SYS_INFO[13] = "DISK (C:): {0} GiB / {1} GiB" -f [math]::Round((($DISK_INFO.Used/1024)/1024)/1024, 2), [math]::Round(((($DISK_INFO.Free+$DISK_INFO.Used)/1024)/1024)/1024, 2);
 $ASCII_LOGO = "logo.txt";
+<<<<<<< HEAD
 $ASCII_COLOR = "white-white";
+=======
+$ASCII_COLOR = "white";
+>>>>>>> 1cc805eb5c2f79c89ec3865b650b969b67a408b4
 for ($arg=0; $arg -lt $args.Count; $arg++){
     if($args[$arg].ToLower().Contains("--ascii_logo:")){
         $ASCII_LOGO = $args[$arg].ToLower().replace("--ascii_logo:", "");
@@ -37,19 +45,31 @@ for ($arg=0; $arg -lt $args.Count; $arg++){
     }
 }
 $LOGO_FILE = Get-Content $ASCII_LOGO;
+<<<<<<< HEAD
 $LOGO_COLOR = $ASCII_COLOR.split("-")[0];
 $TEXT_COLOR = $ASCII_COLOR.split("-")[1];
+=======
+>>>>>>> 1cc805eb5c2f79c89ec3865b650b969b67a408b4
 if ($LOGO_FILE.Count -gt $SYS_INFO.Count){
     for ($i=0; $i -lt $LOGO_FILE.Count; $i++){
         $LOGO_FILE[$i] = $LOGO_FILE[$i].TrimEnd(".");
         try{
             $FINAL_OUT = "{0} {1}" -f $LOGO_FILE[$i], $SYS_INFO[$i];
+<<<<<<< HEAD
             Write-Host $LOGO_FILE[$i] -ForegroundColor $LOGO_COLOR -nonewline; Write-Host $SYS_INFO[$i] -ForegroundColor $TEXT_COLOR;
         }
         catch{
             $SPACE_CHAR = " " * ($LOGO_FILE[0].Length-1);
             Write-Host $LOGO_FILE[$i] -ForegroundColor $SPACE_CHAR -nonewline; Write-Host $SYS_INFO[$i] -ForegroundColor $TEXT_COLOR;
         }
+=======
+        }
+        catch{
+            $SPACE_CHAR = " " * ($LOGO_FILE[0].Length-1);
+            $FINAL_OUT = "{0} {1}" -f $SPACE_CHAR, $SYS_INFO[$i];
+        }
+        Write-Host -ForegroundColor $ASCII_COLOR $FINAL_OUT;
+>>>>>>> 1cc805eb5c2f79c89ec3865b650b969b67a408b4
     }
 }
 else{
@@ -57,11 +77,20 @@ else{
         $LOGO_FILE[$i] = $LOGO_FILE[$i].TrimEnd(".");
         try{
             $FINAL_OUT = "{0} {1}" -f $LOGO_FILE[$i], $SYS_INFO[$i];
+<<<<<<< HEAD
             Write-Host $LOGO_FILE[$i] -ForegroundColor $LOGO_COLOR -nonewline; Write-Host $SYS_INFO[$i] -ForegroundColor $TEXT_COLOR;
         }
         catch{
             $SPACE_CHAR = " " * ($LOGO_FILE[0].Length-1);
             Write-Host $LOGO_FILE[$i] -ForegroundColor $SPACE_CHAR -nonewline; Write-Host $SYS_INFO[$i] -ForegroundColor $TEXT_COLOR;
         }
+=======
+        }
+        catch{
+            $SPACE_CHAR = " " * ($LOGO_FILE[0].Length-1);
+            $FINAL_OUT = "{0} {1}" -f $SPACE_CHAR, $SYS_INFO[$i];
+        }
+        Write-Host -ForegroundColor $ASCII_COLOR $FINAL_OUT;
+>>>>>>> 1cc805eb5c2f79c89ec3865b650b969b67a408b4
     }
 }
